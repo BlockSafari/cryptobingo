@@ -1,0 +1,82 @@
+@import "variables";
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,900");
+
+
+html
+{
+	box-sizing: border-box;
+	color: $color-default;
+	font-family: "Open Sans", sans-serif;
+	font-size: $font-size-default;
+
+	@include media("<desktop")
+	{
+		-webkit-overflow-scrolling: touch;
+	}
+}
+
+*, *:before, *:after
+{
+	box-sizing: inherit;
+}
+
+*:focus
+{
+	outline: none;
+}
+
+body
+{
+	background: $background-color-default;
+}
+
+h1, h2, h3
+{
+	font-weight: 600;
+	margin: 0;
+	padding: 0;
+}
+
+h1
+{
+	font-size: 1.3rem;
+}
+
+h2
+{
+	font-size: 1.15rem;
+}
+
+h3
+{
+	font-size: 1.0rem;
+}
+
+hr
+{
+	border: none;
+	border-bottom: 1px solid $hr-color-default;
+	height: 0;
+	width: 90%;
+
+	&.vertical
+	{
+		border: none;
+		border-right: 1px solid $hr-color-default;
+		height: 90%;
+		margin: 5% auto 5% auto;
+		width: 0;
+	}
+}
+
+a
+{
+	color: #519ed6;
+	text-decoration: none;
+}
+
+tspan,
+text
+{
+	font-family: inherit;
+}

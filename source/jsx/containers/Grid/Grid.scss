@@ -1,0 +1,27 @@
+@import "../../common/variables";
+
+.grid
+{
+	background: #eeeeee;
+	border: 1px solid $border-color-default;
+	padding-top: 100%;
+	position: relative;
+
+	.gridRowContainer
+	{
+		display: flex;
+		flex-wrap: nowrap;
+		flex-direction: column;
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+
+		.gridRow
+		{
+			display: flex;
+			flex: 1 0 0;
+		}
+	}
+}

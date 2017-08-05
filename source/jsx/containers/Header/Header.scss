@@ -1,0 +1,11 @@
+@import "../../common/variables";
+
+.header
+{
+	padding: $padding-default;
+
+	.title
+	{
+		text-align: center;
+	}
+}

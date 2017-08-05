@@ -1,0 +1,9 @@
+@import "../common/variables";
+
+.wrapper
+{
+	margin: 0 auto 0 auto;
+	max-width: $wrapper-maxWidth;
+	min-width: $wrapper-minWidth;
+	width: 100%;
+}
