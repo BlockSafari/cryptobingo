@@ -174,6 +174,8 @@ export const phrases =
 	"Sent cryptocurrency to the wrong address.",
 	"Waited over 6 hours for a Bitcoin transaction to confirm.",
 	"Argued with someone over which cryptocurrency was better.",
+	"Spread FUD about competing cryptocurrency.",
+	"Checked the price of your investments more than 10 times in one day.",
 
 	// Uncommon actions.
 	"Viewed porn involving cryptocurrency. 🍑",
@@ -184,6 +186,7 @@ export const phrases =
 	"Purchased cryptocurrency using a credit card.",
 	"Participated in a cryptocurrency ponzi.",
 	"Purchased porn using cryptocurrency.",
+	"Referred to Bitcoin as \"Buttcoin\".",
 
 	// Outreach.
 	"Explained to someone what cryptocurrency is.",
@@ -209,12 +212,13 @@ export const phrases =
 	"Purchased something illegal using cryptocurrency. 👮",
 	"Purchased something from a dark market using cryptocurrency. 👮",
 	"Purchased something using a cryptocurrency backed debit card.",
-	"Used a cryptocurrency ATM.",
 	"Visited a dark market that accepts cryptocurrency. 👮",
-	"Visited a store IRL that accepts cryptocurrency. 👮",
+	"Visited a store IRL that accepts cryptocurrency.",
+	"Used a cryptocurrency ATM to withdrawal cash.",
 	"Made a donation using cryptocurrency.",
 	"Worked for payment in cryptocurrency.",
 	"Played a video game that uses cryptocurrency.",
+	"Sent a payment to someone in a different country in cryptocurrency.",
 
 	// Predictions.
 	"Believe that Vitalik Buterin will die of malnutrition.",
