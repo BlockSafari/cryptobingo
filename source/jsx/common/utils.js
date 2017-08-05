@@ -85,6 +85,20 @@ export function getRandomIntInclusiveWithRng(rng, min, max)
 }
 
 /**
+ * Returns a random integer between 0 (included) and Number.MAX_SAFE_INTEGER(inclusive) using a provided random number generator.
+ *
+ * @param  {Function} rng A random number generator function.
+ * @return {Number} A random integer between min and max (inclusive).
+ */
+export function getRandomIntWithRng(rng)
+{
+	const min = 0;
+	const max = Number.MAX_SAFE_INTEGER;
+
+	return getRandomIntInclusiveWithRng(rng, min, max);
+}
+
+/**
  * Round to precision
  * Source: http://stackoverflow.com/a/26463364/9979
  * @param  {Number} x The number to be rounded.

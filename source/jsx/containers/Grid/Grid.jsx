@@ -8,8 +8,7 @@ import seedrandom from "seedrandom";
 // Import dependencies.
 import GridTile from "./GridTile.jsx";
 import "./Grid.scss";
-import {phraseIdMax} from "../../common/phrases.js";
-import {getRandomIntInclusiveWithRng} from "../../common/utils";
+import {getRandomIntWithRng} from "../../common/utils";
 
 export default class Grid extends React.PureComponent
 {
@@ -34,7 +33,7 @@ export default class Grid extends React.PureComponent
 
 		const nextRandomNumber = () =>
 		{
-			return getRandomIntInclusiveWithRng(rng, 0, phraseIdMax-1);
+			return getRandomIntWithRng(rng);
 		};
 		return nextRandomNumber;
 	}

@@ -1,8 +1,11 @@
 "use strict";
 
+// Import third party dependencies.
 import * as _ from "lodash";
 
-// In format {string} or {[{string}, {number}]}
+/**
+ * Master list of all phrases in string format, or [string, number] format.
+ */
 export const phrases =
 [
 	// Brand exposure.
@@ -170,6 +173,7 @@ export const phrases =
 	"Used an exchange as a private wallet.",
 	"Sent cryptocurrency to the wrong address.",
 	"Waited over 6 hours for a Bitcoin transaction to confirm.",
+	"Argued with someone over which cryptocurrency was better.",
 
 	// Uncommon actions.
 	"Viewed porn involving cryptocurrency. 🍑",
@@ -228,23 +232,77 @@ export const phrases =
 	"Own some blockchain or cryptocurrency swag.",
 ];
 
-export const phraseIdMax = (function()
+/**
+ * Calculate the highest ID number for a phrase array.
+ * @param {array} phraseArray An array of phrases.
+ * @returns {number} The highest calculated ID number.
+ */
+export const phraseIdMax = function(phraseArray)
 {
 	let count = 0;
-	for(let i = 0; i < phrases.length; ++i)
+	for(let i = 0; i < phraseArray.length; ++i)
 	{
-		if(_.isString(phrases[i]))
+		if(_.isString(phraseArray[i]))
 			count += 1;
-		else if(_.isArray(phrases[i]) && phrases[i].length === 2)
-			count += phrases[i][1];
+		else if(_.isArray(phraseArray[i]) && phraseArray[i].length === 2)
+			count += phraseArray[i][1];
 		else
 			throw new Error(`Invalid phrase constant value at ${i} during phraseIdMax calculation.`);
 	}
 	return count;
-})();
+};
 
+/**
+ * Returns a {string} phrase for the specified ID number.
+ * @param {number} id The ID of the phrase.
+ * @returns {string|null} Returns a string or null if the id was not available.
+ */
 export const getPhrase = function(id)
 {
+	let rangeMin = 0;
+	let rangeMax = 0;
+	let select = id % phraseIdMax(phrases);
+
+	for(let i = 0; i < phrases.length; ++i)
+	{
+		let phrase = null;
+
+		if(_.isString(phrases[i]))
+		{
+			phrase = phrases[i];
+			rangeMax += 1;
+		}
+		else if(_.isArray(phrases[i]) && phrases[i].length === 2)
+		{
+			phrase = phrases[i][0];
+			rangeMax += phrases[i][1];
+		}
+
+		if(select >= rangeMin && select < rangeMax)
+			return phrase;
+		else
+			rangeMin = rangeMax;
+	}
+
+	return null;
+};
+
+/**
+ * An array of available unused phrases. This array changes as phrases are selected.
+ */
+const phrasesAvailable = _.cloneDeep(phrases);
+
+/* eslint-disable no-consistent-return */
+/**
+ * Returns a {string} phrase for the specified ID number, then removes that phrase from the phrasesAvailable array.
+ * @param {number} id The ID of the phrase.
+ * @returns {string} Returns a string.
+ */
+export const getUniquePhrase = function(id)
+{
+	const phrases = phrasesAvailable;
+	const select = id % phraseIdMax(phrases);
+
 	let rangeMin = 0;
 	let rangeMax = 0;
 
@@ -263,11 +321,13 @@ export const getPhrase = function(id)
 			rangeMax += phrases[i][1];
 		}
 
-		if(id >= rangeMin && id < rangeMax)
+		if(select >= rangeMin && select < rangeMax)
+		{
+			phrasesAvailable.splice(i, 1);
 			return phrase;
+		}
 		else
 			rangeMin = rangeMax;
 	}
-
-	return null;
 };
+/* eslint-enable no-consistent-return */

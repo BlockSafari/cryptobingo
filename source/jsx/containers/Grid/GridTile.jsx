@@ -5,7 +5,7 @@ import * as React from "react";
 import PropTypes from "prop-types";
 
 // Import dependencies.
-import {getPhrase} from "../../common/phrases.js";
+import {getUniquePhrase} from "../../common/phrases.js";
 import {copyToClipboard, isMobileOrTablet} from "../../common/utils.js";
 import "./GridTile.scss";
 
@@ -86,7 +86,7 @@ export default class Grid extends React.PureComponent
 			<div className="gridTile" ref={(ref)=>this.gridTileElement=ref}>
 				<img className={copyIconClass} src="static/icons/copy.png" onClick={this.handleCopyIconClicked} />
 				<div className="gridText" ref={(ref)=>this.gridTextElement=ref}>
-					{getPhrase(this.props.phraseId)}
+					{getUniquePhrase(this.props.phraseId)}
 				</div>
 			</div>
 		);
