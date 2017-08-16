@@ -145,7 +145,7 @@ export const phrases =
 	// Fake news.
 	"Believed that Vitalik Buterin died in a car accident.",
 
-	// Media
+	// Media.
 	"Read a newspaper article about blockchain or cryptocurrency.",
 	"Watched a TV news report about blockchain or cryptocurrency.",
 	"Read a blog post about blockchain or cryptocurrency.",
